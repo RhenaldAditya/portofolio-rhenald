@@ -1,30 +1,63 @@
-// Memastikan script berjalan setelah seluruh elemen HTML selesai dimuat browser
 document.addEventListener("DOMContentLoaded", function() {
+    const textElement = document.getElementById("typed-text");
+    // Daftar kata yang akan diketik bergantian
+    const words = ["Web Developer.", "Mahasiswa IT.", "Programmer."];
     
-    // Mengambil elemen teks <h2> di HTML yang memiliki ID 'greeting'
-    const greetingElement = document.getElementById("greeting");
-    
-    // Mendapatkan jam saat ini dari komputer pengunjung (dalam format 0 - 23)
-    const currentHour = new Date().getHours();
-    
-    // Menyiapkan variabel kosong untuk menyimpan teks sapaan
-    let greetingText = "";
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 100;
 
-    // Logika kondisi untuk menentukan sapaan berdasarkan waktu
-    if (currentHour >= 5 && currentHour < 11) {
-        greetingText = "Selamat Pagi!"; // Jam 5 sampai 10.59
-    } else if (currentHour >= 11 && currentHour < 15) {
-        greetingText = "Selamat Siang!"; // Jam 11 sampai 14.59
-    } else if (currentHour >= 15 && currentHour < 18) {
-        greetingText = "Selamat Sore!"; // Jam 15 sampai 17.59
-    } else {
-        greetingText = "Selamat Malam!"; // Selain jam di atas
+    function type() {
+        const currentWord = words[wordIndex];
+        
+        // Kondisi jika sedang menghapus kata atau mengetik
+        if (isDeleting) {
+            textElement.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+            typingSpeed = 50; // Kecepatan menghapus lebih cepat
+        } else {
+            textElement.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+            typingSpeed = 150; // Kecepatan mengetik
+        }
+
+        // Jika kata sudah selesai diketik semua
+        if (!isDeleting && charIndex === currentWord.length) {
+            isDeleting = true;
+            typingSpeed = 1500; // Jeda sebelum mulai menghapus
+        } 
+        // Jika kata sudah selesai dihapus semua
+        else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length; // Pindah ke kata selanjutnya
+            typingSpeed = 500; // Jeda sebelum mulai mengetik kata baru
+        }
+
+        setTimeout(type, typingSpeed);
     }
 
-    // Mengganti teks pada elemen HTML dengan sapaan yang sudah ditentukan
-    greetingElement.innerText = greetingText;
-    
-    // Mencetak pesan tersembunyi di Developer Console (tekan F12 di browser untuk melihat)
-    // Ini menunjukkan ke rekruter bahwa kamu paham fungsi dasar console
-    console.log("Welcome to Rhenald's Portfolio! This page is built with HTML, CSS, and JS.");
+    // Memulai efek animasi
+    type();
+
+    // Mengambil semua tautan yang ada di dalam navbar
+    const navLinks = document.querySelectorAll('.navbar a');
+
+    // Menambahkan event klik pada setiap tautan
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault(); // Mencegah lompatan standar HTML
+            
+            // Mengambil ID tujuan dari atribut href (misal: #about)
+            const targetId = this.getAttribute('href');
+            const targetSection = document.querySelector(targetId);
+            
+            // Memerintahkan browser untuk menggulir halus ke section tujuan
+            if(targetSection) {
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
 });
