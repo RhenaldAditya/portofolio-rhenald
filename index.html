@@ -1,58 +1,105 @@
-<!-- Mendefinisikan bahwa dokumen ini adalah HTML5 -->
 <!DOCTYPE html>
-<!-- Tag utama HTML, atribut lang="id" berarti menggunakan bahasa Indonesia -->
 <html lang="id">
 <head>
-    <!-- Pengaturan karakter standar agar bisa membaca semua huruf/simbol -->
     <meta charset="UTF-8">
-    <!-- Membuat website responsif (menyesuaikan ukuran layar HP atau Laptop) -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Judul yang muncul di tab browser -->
-    <title>Portfolio | Rhenald Aditya Bima Permana</title>
-    <!-- Menghubungkan file HTML ini dengan file CSS untuk desain -->
+    <title>Rhenald Aditya | Portfolio</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Container utama yang membungkus semua isi website -->
-    <div class="container">
-        
-        <!-- Bagian header untuk menampilkan profil utama -->
-        <header class="profile-header">
-            <!-- Menampilkan salam yang nanti akan diubah oleh JavaScript -->
-            <h2 id="greeting">Halo!</h2>
-            <!-- Nama lengkapmu dengan heading 1 (paling besar) -->
-            <h1>Rhenald Aditya Bima Permana</h1>
-            <!-- Deskripsi singkat -->
-            <p>Web Developer | Programmer</p>
-        </header>
+    <!-- Hero Section (Layar Penuh) -->
+    <section class="hero" id="home">
+        <!-- Navigasi Menu yang akan menempel di atas -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#portfolio">Portofolio</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+        <!-- Overlay gelap agar teks tetap terbaca meskipun pakai background foto -->
+        <div class="overlay">
+            <div class="hero-content">
+                <p class="greeting">Halo, perkenalkan saya</p>
+                <h1>Rhenald Aditya Bima Permana</h1>
+                
+                <!-- Tempat untuk animasi teks -->
+                <div class="animated-text">
+                    Saya seorang <span id="typed-text"></span><span class="cursor">&nbsp;</span>
+                </div>
 
-        <!-- Bagian utama untuk menampilkan tombol-tombol sosial media -->
-        <main class="social-links">
-            <!-- Tautan ke Instagram (target="_blank" agar membuka tab baru saat diklik) -->
-            <a href="https://instagram.com/rhenaldadityaa" target="_blank" class="btn">
-                Instagram: @rhenaldadityaa
-            </a>
-            
-            <!-- Tautan ke LinkedIn -->
-            <a href="https://www.linkedin.com/in/rhenald-aditya-bima-p-248053204/" target="_blank" class="btn">
-                LinkedIn: Rhenald Aditya Bima P
-            </a>
-            
-            <!-- Tautan ke YouTube -->
-            <a href="https://youtube.com/@rhenaldaditya" target="_blank" class="btn">
-                YouTube: Rhenald Aditya
-            </a>
-            
-            <!-- Tautan ke GitHub (Meskipun kamu menulis email, saya arahkan formatnya ke profil GitHub) -->
-            <a href="https://github.com/RhenaldAditya" target="_blank" class="btn">
-                GitHub: Rhenald Aditya
-            </a>
-        </main>
-        
-    </div>
+                <!-- Media Sosial -->
+                <div class="social-links">
+                    <a href="https://github.com/RhenaldAditya" target="_blank"><img src="img/github_logo.png" srcset="">GitHub</a>
+                    <a href="https://instagram.com/rhenaldadityaa" target="_blank"><img src="img/ig_logo.png" srcset="">Instagram</a>
+                    <a href="https://www.linkedin.com/in/rhenald-aditya-bima-p-248053204/" target="_blank"><img src="img/linkedin_logo.jpg" srcset="">LinkedIn</a>
+                    <a href="https://youtube.com/@rhenaldaditya" target="_blank" class="btn"><img src="img/youtube_logo.jpg" srcset="">Youtube</a>
+                </div>
+            </div>
+        </div>
+        <!-- Bagian Tentang Saya (About) -->
+    <section id="about" class="section">
+        <div class="container-section">
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <!-- Deskripsi personal yang profesional -->
+                    <p>Halo! Saya Rhenald Aditya Bima Permana, mahasiswa Semester 6 di Universitas Terbuka. Saya memiliki ketertarikan mendalam pada pengembangan web dan aplikasi *mobile*, serta tata kelola teknologi informasi.</p>
+                    <p>Saat ini saya fokus mengembangkan aplikasi yang efisien dan responsif menggunakan teknologi modern.</p>
+                </div>
+                <div class="skills">
+                    <!-- Daftar teknologi yang dikuasai -->
+                    <h3>Tech Stack</h3>
+                    <div class="skill-tags">
+                        <span>PHP (Laravel 12)</span>
+                        <span>Vue.js</span>
+                        <span>TypeScript</span>
+                        <span>Ionic Framework</span>
+                        <span>Python</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Bagian Daftar Proyek (Portfolio) -->
+    <section id="portfolio" class="section bg-light">
+        <div class="container-section">
+            <h2 class="section-title">Karya & Proyek</h2>
+            <div class="portfolio-grid">
+                
+                <!-- Kartu Proyek 1 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-info">
+                        <h3>Weather Forecast App</h3>
+                        <p>Aplikasi pemantau cuaca terintegrasi dengan API online, dibangun menggunakan Vue.js dan dioptimalkan untuk mobile dengan Ionic Framework.</p>
+                    </div>
+                </div>
 
-    <!-- Menghubungkan file HTML ini dengan file JavaScript untuk interaktivitas -->
+                <!-- Kartu Proyek 2 -->
+                <div class="portfolio-item">
+                    <div class="portfolio-info">
+                        <h3>Task Management System</h3>
+                        <p>Sistem manajemen tugas dengan antarmuka CLI yang dibangun menggunakan Python untuk efisiensi pengelolaan produktivitas harian.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Bagian Kontak (Contact) -->
+    <section id="contact" class="section">
+        <div class="container-section text-center">
+            <h2 class="section-title">Mari Berdiskusi</h2>
+            <p>Tertarik untuk berkolaborasi atau memiliki pertanyaan? Jangan ragu untuk menghubungi saya.</p>
+            <!-- Tombol untuk langsung mengirim email -->
+            <a href="mailto:rhenaldaditya11@gmail.com" class="btn-contact">Kirim Email</a>
+        </div>
+    </section>
+    </section>
+
+
     <script src="script.js"></script>
 </body>
 </html>

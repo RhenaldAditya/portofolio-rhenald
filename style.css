@@ -1,86 +1,258 @@
-/* Mengatur variabel warna agar mudah diubah-ubah nantinya */
 :root {
-    --warna-latar: #f4f6f9; /* Putih keabu-abuan untuk background halaman */
-    --warna-biru: #0056b3; /* Biru dominan untuk elemen utama */
-    --warna-kuning: #ffc107; /* Kuning untuk aksen/sorotan */
-    --warna-teks: #333333; /* Warna teks gelap agar mudah dibaca */
-    --putih-bersih: #ffffff; /* Putih murni untuk kotak konten */
+    --warna-biru: #0056b3; /* Ini yang membuat tombolnya punya warna dasar */
+    --warna-kuning: #ffc107;
+    --putih-bersih: #ffffff;
+    --warna-teks: #333333;
 }
-
-/* Reset margin dan padding bawaan browser agar seragam */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Menggunakan font standar yang rapi */
+    font-family: 'Segoe UI', Tahoma, sans-serif;
 }
 
-/* Mengatur warna background seluruh layar dan memposisikan konten di tengah */
-body {
-    background-color: var(--warna-latar);
-    color: var(--warna-teks);
-    display: flex; /* Mengaktifkan mode flexbox untuk mengatur layout */
-    justify-content: center; /* Membawa konten ke tengah secara horizontal */
-    align-items: center; /* Membawa konten ke tengah secara vertikal */
-    min-height: 100vh; /* Tinggi minimal sama dengan tinggi layar */
-}
-
-/* Mengatur kotak putih tempat profilmu berada */
-.container {
-    background-color: var(--putih-bersih);
+/* Mengatur Hero Section */
+.hero {
     width: 100%;
-    max-width: 500px; /* Lebar maksimal kotak adalah 500px */
-    padding: 40px; /* Jarak antara teks dan tepi dalam kotak */
-    border-radius: 12px; /* Membuat sudut kotak menjadi melengkung */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Memberikan efek bayangan lembut */
-    border-top: 5px solid var(--warna-kuning); /* Aksen garis kuning di bagian atas kotak */
+    height: 100vh; /* Mengambil 100% tinggi layar */
+    /* GANTI URL DI BAWAH INI DENGAN NAMA FILE FOTOMU SENDIRI */
+    background-image: url('foto-background-kamu.jpg'); 
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
 }
 
-/* Mengatur tata letak bagian judul profil */
-.profile-header {
-    text-align: center; /* Teks berada di tengah */
-    margin-bottom: 30px; /* Jarak bawah sebelum daftar tombol media sosial */
+/* Membuat lapisan gelap transparan di atas foto */
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Warna hitam transparan */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
-/* Mengatur warna dan ukuran teks Halo/Greeting */
-.profile-header h2 {
-    color: var(--warna-biru);
+/* Tampilan Konten */
+.hero-content {
+    color: var(--putih-bersih);
+}
+
+.greeting {
     font-size: 1.2rem;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
 }
 
-/* Mengatur warna dan ukuran Nama */
-.profile-header h1 {
-    color: var(--warna-teks);
-    font-size: 1.8rem;
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* Pengaturan Animasi Teks */
+.animated-text {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+#typed-text {
+    color: var(--warna-kuning); /* Aksen kuning untuk teks yang diketik */
+    font-weight: bold;
+    border-bottom: 2px solid var(--warna-kuning);
+}
+
+/* Animasi kursor berkedip */
+.cursor {
+    display: inline-block;
+    width: 3px;
+    background-color: var(--putih-bersih);
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Tombol Sosial Media Minimalis */
+.social-links {
+    display: flex;
+    justify-content: center; /* Membawa semua tombol ke tengah */
+    gap: 15px; /* Jarak antar tombol */
+    flex-wrap: wrap; /* Agar rapi di layar HP (turun ke bawah) */
+    margin-top: 20px;
+}
+
+.social-links a {
+    /* Menggunakan flex untuk menyejajarkan logo dan teks secara vertikal */
+    display: flex;
+    align-items: center; 
+    gap: 8px; /* Jarak antara logo dan teks di dalam tombol */
+    
+    /* Desain Tombol (opsional, sesuaikan dengan gaya Ronaldo sebelumnya) */
+    color: var(--putih-bersih);
+    text-decoration: none;
+    font-size: 0.9rem;
+    border: 1px solid var(--putih-bersih);
+    padding: 8px 16px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1); /* Latar belakang tipis */
+}
+
+.social-links a:hover {
+    background-color: var(--warna-kuning);
+    color: #000;
+    border-color: var(--warna-kuning);
+}
+
+/* --- INI KODE KUNCI UNTUK MEMAKSA LOGO MENJADI KECIL --- */
+.social-links a img {
+    /* Memaksa ukuran maksimal logo */
+    width: 20px !important;  /* Gunakan !important jika CSS lain terlalu kuat */
+    height: 20px !important; /* Pastikan tinggi sama agar proporsional */
+    
+    /* Memastikan gambar tidak gepeng */
+    object-fit: contain; 
+    
+    /* Menghilangkan margin bawaan yang mungkin ada */
+    margin: 0 !important; 
+    padding: 0;
+    display: block; /* Menghilangkan spasi aneh di bawah gambar */
+}
+
+/* --- PENGATURAN NAVIGASI (NAVBAR) --- */
+.navbar {
+    background-color: var(--warna-biru); /* Warna biru dominan sesuai permintaan */
+    position: sticky; /* Membuat menu menempel saat di-scroll ke bawah */
+    top: 0;
+    z-index: 100; /* Memastikan menu selalu berada di lapisan paling atas */
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar ul {
+    list-style: none; /* Menghilangkan titik (bullet) pada list */
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.navbar a {
+    color: var(--putih-bersih);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: var(--warna-kuning); /* Efek kuning saat menu disentuh */
+}
+
+/* --- PENGATURAN UMUM BAGIAN (SECTION) --- */
+.section {
+    padding: 80px 20px; /* Jarak atas-bawah 80px, kiri-kanan 20px */
+}
+
+.bg-light {
+    background-color: #f9f9f9; /* Memberi warna beda selang-seling antar section */
+}
+
+.container-section {
+    max-width: 1000px; /* Membatasi lebar konten agar tidak terlalu melebar di layar PC */
+    margin: 0 auto; /* Membawa kontainer ke tengah layar */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--warna-biru);
+}
+
+/* --- PENGATURAN TENTANG SAYA --- */
+.about-content {
+    display: flex;
+    gap: 40px; /* Jarak antara teks deskripsi dan daftar skill */
+    flex-wrap: wrap; /* Jika layar kecil, elemen akan turun ke bawah */
+}
+
+.about-text, .skills {
+    flex: 1; /* Membagi ruang sama rata (50:50) */
+    min-width: 300px; /* Lebar minimal agar tidak terlalu sempit di HP */
+}
+
+.about-text p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Label Skill / Keahlian */
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+    color: #ffc107;
+}
+
+.skill-tags span {
+    background-color: var(--warna-biru);
+    color: var(--putih-bersih);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #ffc107;
+    border-bottom: 3px solid var(--warna-kuning); /* Aksen kuning di bawah label */
+}
+
+/* --- PENGATURAN PORTOFOLIO --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid otomatis menyesuaikan lebar layar */
+    gap: 30px;
+}
+
+.portfolio-item {
+    background: var(--putih-bersih);
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-top: 4px solid var(--warna-kuning); /* Aksen kuning di setiap kartu proyek */
+    transition: transform 0.3s;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px); /* Efek kartu terangkat saat disentuh kursor */
+}
+
+.portfolio-item h3 {
+    color: var(--warna-biru);
     margin-bottom: 10px;
 }
 
-/* Mengatur susunan tombol-tombol agar vertikal */
-.social-links {
-    display: flex;
-    flex-direction: column; /* Menyusun tombol dari atas ke bawah */
-    gap: 15px; /* Memberi jarak 15px antar tombol */
-}
-
-/* Desain awal untuk setiap tombol sosial media */
-.btn {
-    text-decoration: none; /* Menghilangkan garis bawah bawaan link HTML */
-    background-color: var(--warna-biru); /* Warna dasar tombol adalah biru */
-    color: var(--putih-bersih); /* Teks di dalam tombol berwarna putih */
-    padding: 15px 20px; /* Ketebalan tombol */
-    border-radius: 8px; /* Sudut tombol sedikit melengkung */
+/* --- PENGATURAN KONTAK --- */
+.text-center {
     text-align: center;
-    font-weight: bold;
-    transition: all 0.3s ease; /* Membuat efek perubahan warna menjadi halus selama 0.3 detik */
-    border-left: 5px solid transparan; /* Persiapan untuk aksen hover */
 }
 
-/* Efek saat mouse diarahkan ke tombol (Hover) */
-.btn:hover {
-    background-color: var(--warna-kuning); /* Latar berubah kuning saat disentuh kursor */
-    color: var(--warna-teks); /* Teks berubah gelap agar kontras dengan kuning */
-    border-left: 5px solid var(--warna-biru); /* Aksen biru muncul di kiri tombol */
-    transform: translateY(-2px); /* Tombol sedikit terangkat ke atas */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Bayangan tombol menebal */
+.btn-contact {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: var(--warna-biru);
+    color: var(--putih-bersih);
+    padding: 12px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-contact:hover {
+    background-color: var(--warna-kuning);
+    color: #333;
 }
