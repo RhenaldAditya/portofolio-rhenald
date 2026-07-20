@@ -1,0 +1,86 @@
+/* Mengatur variabel warna agar mudah diubah-ubah nantinya */
+:root {
+    --warna-latar: #f4f6f9; /* Putih keabu-abuan untuk background halaman */
+    --warna-biru: #0056b3; /* Biru dominan untuk elemen utama */
+    --warna-kuning: #ffc107; /* Kuning untuk aksen/sorotan */
+    --warna-teks: #333333; /* Warna teks gelap agar mudah dibaca */
+    --putih-bersih: #ffffff; /* Putih murni untuk kotak konten */
+}
+
+/* Reset margin dan padding bawaan browser agar seragam */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Menggunakan font standar yang rapi */
+}
+
+/* Mengatur warna background seluruh layar dan memposisikan konten di tengah */
+body {
+    background-color: var(--warna-latar);
+    color: var(--warna-teks);
+    display: flex; /* Mengaktifkan mode flexbox untuk mengatur layout */
+    justify-content: center; /* Membawa konten ke tengah secara horizontal */
+    align-items: center; /* Membawa konten ke tengah secara vertikal */
+    min-height: 100vh; /* Tinggi minimal sama dengan tinggi layar */
+}
+
+/* Mengatur kotak putih tempat profilmu berada */
+.container {
+    background-color: var(--putih-bersih);
+    width: 100%;
+    max-width: 500px; /* Lebar maksimal kotak adalah 500px */
+    padding: 40px; /* Jarak antara teks dan tepi dalam kotak */
+    border-radius: 12px; /* Membuat sudut kotak menjadi melengkung */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Memberikan efek bayangan lembut */
+    border-top: 5px solid var(--warna-kuning); /* Aksen garis kuning di bagian atas kotak */
+}
+
+/* Mengatur tata letak bagian judul profil */
+.profile-header {
+    text-align: center; /* Teks berada di tengah */
+    margin-bottom: 30px; /* Jarak bawah sebelum daftar tombol media sosial */
+}
+
+/* Mengatur warna dan ukuran teks Halo/Greeting */
+.profile-header h2 {
+    color: var(--warna-biru);
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+/* Mengatur warna dan ukuran Nama */
+.profile-header h1 {
+    color: var(--warna-teks);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+/* Mengatur susunan tombol-tombol agar vertikal */
+.social-links {
+    display: flex;
+    flex-direction: column; /* Menyusun tombol dari atas ke bawah */
+    gap: 15px; /* Memberi jarak 15px antar tombol */
+}
+
+/* Desain awal untuk setiap tombol sosial media */
+.btn {
+    text-decoration: none; /* Menghilangkan garis bawah bawaan link HTML */
+    background-color: var(--warna-biru); /* Warna dasar tombol adalah biru */
+    color: var(--putih-bersih); /* Teks di dalam tombol berwarna putih */
+    padding: 15px 20px; /* Ketebalan tombol */
+    border-radius: 8px; /* Sudut tombol sedikit melengkung */
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.3s ease; /* Membuat efek perubahan warna menjadi halus selama 0.3 detik */
+    border-left: 5px solid transparan; /* Persiapan untuk aksen hover */
+}
+
+/* Efek saat mouse diarahkan ke tombol (Hover) */
+.btn:hover {
+    background-color: var(--warna-kuning); /* Latar berubah kuning saat disentuh kursor */
+    color: var(--warna-teks); /* Teks berubah gelap agar kontras dengan kuning */
+    border-left: 5px solid var(--warna-biru); /* Aksen biru muncul di kiri tombol */
+    transform: translateY(-2px); /* Tombol sedikit terangkat ke atas */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Bayangan tombol menebal */
+}
