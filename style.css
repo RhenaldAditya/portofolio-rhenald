@@ -58,7 +58,7 @@
 }
 
 #typed-text {
-    color: var(--warna-kuning); /* Aksen kuning untuk teks yang diketik */
+    color: var(--warna-kuning);
     font-weight: bold;
     border-bottom: 2px solid var(--warna-kuning);
 }
@@ -158,10 +158,10 @@
 }
 
 .container-section {
-    width: 75%; /* Mengambil 3/4 (75%) dari lebar total layar */
-    max-width: 1200px; /* Batas maksimal ideal agar di monitor ultra-wide tidak terlalu melebar */
-    margin: 0 auto; /* Memastikan posisi kontainer tetap presisi di tengah layar */
-    padding: 0 15px; /* Memberi sedikit jarak aman di kiri-kanan layar HP */
+    width: 75%; 
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 0 15px; 
 }
 
 .section-title {
@@ -191,7 +191,7 @@
 /* Label Skill / Keahlian */
 .skill-tags {
     display: flex;
-    flex-wrap: wrap; /* Agar kartu menyesuaikan lebar layar */
+    flex-wrap: wrap;
     gap: 12px;
     margin-top: 15px;
 }
@@ -199,23 +199,23 @@
 /* Desain Kartu Tech Stack */
 .tech-card {
     display: flex;
-    align-items: center; /* Menyejajarkan logo dan teks secara vertikal */
-    gap: 10px; /* Jarak antara logo dan teks */
-    background-color: #ffffff; /* Background putih */
-    border: 1.5px solid #3aa6b9; /* Border biru navy menyesuaikan theme */
+    align-items: center;
+    gap: 10px;
+    background-color: #ffffff;
+    border: 1.5px solid #3aa6b9;
     padding: 8px 16px;
-    border-radius: 8px; /* Sudut sedikit melengkung rapi */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Bayangan sangat tipis */
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     cursor: default;
 }
 
 /* Teks nama teknologi di dalam kartu */
 .tech-card span {
-    color: #0f172a; /* Warna teks gelap tegas agar kontras dengan background putih */
+    color: #0f172a; 
     font-size: 0.95rem;
     font-weight: 600;
-    background: none; /* Menghilangkan style background lama */
+    background: none; 
     padding: 0;
     border: none;
 }
@@ -224,15 +224,15 @@
 .tech-card img {
     width:60px;
     height: auto;
-    object-fit: contain; /* Memastikan logo tidak gepeng */
+    object-fit: contain; 
     display: block;
 }
 
-/* --- EFEK HOVER (Pas Kursor Mengarah ke Kartu) --- */
+/* --- EFEK HOVER ( Kursor Mengarah ke Kartu) --- */
 .tech-card:hover {
-    transform: translateY(-4px); /* Kartu terangkat ke atas sedikit */
-    box-shadow: 0 6px 15px rgba(15, 23, 42, 0.12); /* Bayangan menebal saat naik */
-    border-color: #d97706; /* Opsional: Border berubah ke aksen amber saat hover */
+    transform: translateY(-4px); 
+    box-shadow: 0 6px 15px rgba(15, 23, 42, 0.12); 
+    border-color: #d97706; 
 }
 
 .skill-tags span {
@@ -336,22 +336,22 @@
     margin-top: 1rem;
     width: 11rem;
     display: flex;
-    align-items: center; /* Menyejajarkan logo dan teks secara vertikal */
-    gap: 10px; /* Jarak antara logo dan teks */
-    background-color: #ffffff; /* Background putih */
-    border: 1.5px solid #3aa6b9; /* Border biru navy menyesuaikan theme */
+    align-items: center; 
+    gap: 10px; 
+    background-color: #ffffff; 
+    border: 1.5px solid #3aa6b9; 
     padding: 8px 16px;
-    border-radius: 8px; /* Sudut sedikit melengkung rapi */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Bayangan sangat tipis */
+    border-radius: 8px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
     font-size: 0.85rem;
 }
 
 /* Teks nama teknologi di dalam kartu */
 .tech-card-use span {
-    color: #0f172a; /* Warna teks gelap tegas agar kontras dengan background putih */
+    color: #0f172a;
     font-size: 0.95rem;
     font-weight: 600;
-    background: none; /* Menghilangkan style background lama */
+    background: none; 
     padding: 0;
     border: none;
 }
@@ -360,6 +360,6 @@
 .tech-card-use img {
     width:30px;
     height: auto;
-    object-fit: contain; /* Memastikan logo tidak gepeng */
+    object-fit: contain;
     display: block;
 }

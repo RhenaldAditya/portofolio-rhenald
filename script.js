@@ -1,6 +1,21 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Mengambil fungsi createApp dari pustaka Vue yang dimuat via CDN
+    const { createApp } = Vue;
+    createApp({
+        data() {
+            return {
+                message: 'Halo dari Vue.js!'
+            }
+        },
+        methods: {
+            changeMessage() {
+                this.message = 'Vue.js Berhasil Terintegrasi!';
+            }
+        }
+    }).mount('#app'); // Mengaitkan ke <div id="app">
+
     const textElement = document.getElementById("typed-text");
-    // Daftar kata yang akan diketik bergantian
+    // Daftar kata
     const words = ["Web Developer.", "Mahasiswa IT.", "Programmer."];
     
     let wordIndex = 0;
@@ -15,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (isDeleting) {
             textElement.textContent = currentWord.substring(0, charIndex - 1);
             charIndex--;
-            typingSpeed = 50; // Kecepatan menghapus lebih cepat
+            typingSpeed = 50; // Kecepatan menghapus 
         } else {
             textElement.textContent = currentWord.substring(0, charIndex + 1);
             charIndex++;
@@ -37,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function() {
         setTimeout(type, typingSpeed);
     }
 
-    // Memulai efek animasi
+    // efek animasi
     type();
 
     // Mengambil semua tautan yang ada di dalam navbar
@@ -46,13 +61,11 @@ document.addEventListener("DOMContentLoaded", function() {
     // Menambahkan event klik pada setiap tautan
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault(); // Mencegah lompatan standar HTML
+            e.preventDefault();
             
-            // Mengambil ID tujuan dari atribut href (misal: #about)
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             
-            // Memerintahkan browser untuk menggulir halus ke section tujuan
             if(targetSection) {
                 targetSection.scrollIntoView({
                     behavior: 'smooth'
