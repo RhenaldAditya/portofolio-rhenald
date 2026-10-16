@@ -73,4 +73,44 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     });
+
+    // --- POPUP DETAIL PROYEK ---
+    const popup = document.getElementById('project-popup');
+
+    if (popup) {
+        const popupTitle = document.getElementById('popup-title');
+        const popupDesc = document.getElementById('popup-desc');
+
+        // Mengambil judul & deskripsi langsung dari dalam card
+        function openPopup(card) {
+            const info = card.querySelector('.portfolio-info');
+            const title = info.querySelector('h3');
+            const desc = info.querySelector('p');
+
+            popupTitle.textContent = title ? title.textContent.trim() : '';
+            popupDesc.textContent = desc ? desc.textContent.trim() : '';
+            popup.classList.add('active');
+        }
+
+        function closePopup() {
+            popup.classList.remove('active');
+        }
+
+        // Pasang aksi klik pada tombol tiap card
+        document.querySelectorAll('.portfolio-item').forEach(card => {
+            const btn = card.querySelector('.btn-detail');
+            if (btn) {
+                btn.addEventListener('click', () => openPopup(card));
+            }
+        });
+
+        // Tutup lewat tombol X, klik area luar, atau tombol Esc
+        popup.querySelector('.popup-close').addEventListener('click', closePopup);
+        popup.addEventListener('click', function(e) {
+            if (e.target === popup) closePopup();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closePopup();
+        });
+    }
 });

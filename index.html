@@ -110,6 +110,8 @@
                         </div>
 
                     </div>
+                    <!-- Tombol detail, muncul saat card di-hover -->
+                    <button type="button" class="btn-detail">Lihat Detail</button>
                 </div>
 
                 <div class="portfolio-item">
@@ -131,6 +133,8 @@
                             <a>TypeScript</a>
                         </div>
                     </div>
+                    <!-- Tombol detail, muncul saat card di-hover -->
+                    <button type="button" class="btn-detail">Lihat Detail</button>
                 </div>
 
                 <!-- Kartu Proyek 2 -->
@@ -156,6 +160,8 @@
                             <a>TypeScript</a>
                         </div>
                     </div>
+                    <!-- Tombol detail, muncul saat card di-hover -->
+                    <button type="button" class="btn-detail">Lihat Detail</button>
                 </div>
             </div>
         </div>
@@ -169,5 +175,16 @@
         </div>
     </section>
     </section>
+
+    <!-- Popup detail proyek (diisi otomatis dari card saat tombol diklik) -->
+    <div class="project-popup" id="project-popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+        <div class="popup-content">
+            <div class="popup-header">
+                <h3 id="popup-title">Judul Proyek</h3>
+                <button type="button" class="popup-close" aria-label="Tutup">&times;</button>
+            </div>
+            <p id="popup-desc"></p>
+        </div>
+    </div>
 </body>
 </html>
