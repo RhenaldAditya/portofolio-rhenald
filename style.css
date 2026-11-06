@@ -1,73 +1,278 @@
 :root {
-    --warna-biru: #0f172a;
-    --warna-kuning: #d97706;
-    --putih-bersih: #ffffff;
-    --warna-teks: #333333;
+    /* ==========================================================================
+       THEME: LIGHT MODE (Default)
+       --------------------------------------------------------------------------
+       Primary (Main / Dominant Color): Deep Blue / Slate Blue (#1E293B)
+       Secondary (Supporting Color)  : Soft Gray / Cool White (#F8FAFC)
+       Accent (Highlight Color)      : Electric Yellow / Amber (#F59E0B)
+       Main Text                     : Charcoal Black (#0F172A)
+       ========================================================================== */
+    --color-primary: #1E293B;            /* Deep Blue / Slate Blue (Navbar, footer, hero) */
+    --color-bg-page: #F8FAFC;            /* Soft Gray / Cool White (Page overall background) */
+    --color-bg-card: #FFFFFF;            /* Clean card containers */
+    --color-bg-card-subtle: #F1F5F9;     /* Tech tag chips & sub-containers */
+    --color-bg-alt: #F1F5F9;             /* Alternate section background */
+    --color-accent: #F59E0B;             /* Electric Yellow / Amber (CTA, tags, active links) */
+    --color-accent-hover: #D97706;       /* Accent hover */
+    --color-accent-text: #0F172A;        /* High-contrast text on accent */
+    --color-text-main: #0F172A;          /* Charcoal Black (All content, titles, paragraphs) */
+    --color-text-body: #334155;          /* Easy-reading body paragraph text */
+    --color-text-muted: #64748B;         /* Secondary / muted text */
+    --color-border: #E2E8F0;             /* Clean subtle divider border */
+    --color-border-card: #CBD5E1;        /* Card border */
+    --color-hero-bg: #F8FAFC;            /* Deep Blue Hero background */
+    --color-hero-text: #0F172A;          /* Pure white hero headings */
+    --color-hero-muted: #475569;         /* Hero subtitle/greeting text */
+    --color-hero-social: #0f172a;
+    --color-navbar-bg: #1E293B;          /* Navbar background */
+    --color-navbar-text: #F8FAFC;        /* Navbar links text */
+    --color-footer-bg: #1E293B;          /* Footer background */
+    --color-footer-text: #94A3B8;        /* Footer text */
+    --shadow-card: 0 4px 15px rgba(15, 23, 42, 0.06);
+    --shadow-card-hover: 0 12px 28px rgba(15, 23, 42, 0.12);
+
+    /* ==========================================================================
+       TYPOGRAPHY (Font Options)
+       Default / Aktif: Montserrat
+       ========================================================================== */
+    --font-main: 'Montserrat', sans-serif;
+    --font-jakarta: 'Plus Jakarta Sans', sans-serif;
+    --font-inter: 'Inter', sans-serif;
+    --font-poppins: 'Poppins', sans-serif;
 }
+
+/* ==========================================================================
+   THEME: DARK MODE
+   --------------------------------------------------------------------------
+   Primary (Main / Dominant Color): Dark Slate / Navy (#0F172A)
+   Secondary (Supporting Color)  : Card Surface (#1E293B)
+   Accent (Highlight Color)      : Bright Yellow / Gold (#FBBF24)
+   Primary Text                  : Off-White / Light Gray (#F1F5F9)
+   ========================================================================== */
+[data-theme="dark"], body.dark-mode {
+    --color-primary: #0F172A;            /* Dark Slate / Navy (Main page background) */
+    --color-bg-page: #0F172A;            /* Main page background */
+    --color-bg-card: #1E293B;            /* Card surface (#1E293B) */
+    --color-bg-card-subtle: #162032;     /* Subtle container in cards */
+    --color-bg-alt: #0B1120;             /* Alternate section for depth */
+    --color-accent: #FBBF24;             /* Bright Yellow / Gold (Contrasts & pops) */
+    --color-accent-hover: #F59E0B;       /* Accent hover */
+    --color-accent-text: #0F172A;        /* High-contrast text on accent */
+    --color-text-main: #F1F5F9;          /* Off-White / Light Gray (All content, titles) */
+    --color-text-body: #CBD5E1;          /* Easy-reading paragraph body text */
+    --color-text-muted: #94A3B8;         /* Secondary / muted text */
+    --color-border: #334155;             /* Thin borders & section dividers (#1E293B / #334155) */
+    --color-border-card: #334155;        /* Card surface border */
+    --color-hero-bg: #0B1120;            /* Dark Navy Hero background */
+    --color-hero-text: #F1F5F9;          /* Off-white hero headings */
+    --color-hero-social: #f1f5f9;
+    --color-hero-muted: #94A3B8;         /* Hero subtitle/greeting text */
+    --color-navbar-bg: #0F172A;          /* Navbar background */
+    --color-navbar-text: #F1F5F9;        /* Navbar links text */
+    --color-footer-bg: #0B1120;          /* Footer background */
+    --color-footer-text: #64748B;        /* Footer text */
+    --shadow-card: 0 4px 15px rgba(0, 0, 0, 0.4);
+    --shadow-card-hover: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* Base Styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-family: var(--font-main);
 }
 
-/* Mengatur Hero Section */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--color-text-main);
+    background-color: var(--color-bg-page);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+}
+
+/* Helper classes for font switching */
+body.font-montserrat { --font-main: 'Montserrat', sans-serif; }
+body.font-jakarta { --font-main: 'Plus Jakarta Sans', sans-serif; }
+body.font-inter { --font-main: 'Inter', sans-serif; }
+body.font-poppins { --font-main: 'Poppins', sans-serif; }
+
+/* ==========================================================================
+   NAVBAR
+   ========================================================================== */
+.navbar {
+    background-color: var(--color-navbar-bg); 
+    position: sticky;
+    top: 0;
+    z-index: 100; 
+    padding: 14px 0;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid var(--color-border);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1150px;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--color-navbar-text);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+    transition: color 0.25s ease;
+}
+
+.nav-brand span {
+    color: var(--color-accent);
+}
+
+.nav-links {
+    list-style: none; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 26px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--color-navbar-text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.25s ease;
+    padding: 4px 0;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--color-accent); 
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 7px 15px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    color: var(--color-navbar-text);
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle-btn:hover {
+    background-color: var(--color-accent);
+    color: var(--color-accent-text);
+    border-color: var(--color-accent);
+    transform: translateY(-1px);
+}
+
+.theme-toggle-btn .theme-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Icon visibility per mode */
+.theme-icon-sun {
+    display: none !important;
+}
+.theme-icon-moon {
+    display: inline-flex !important;
+}
+
+[data-theme="dark"] .theme-icon-sun,
+body.dark-mode .theme-icon-sun {
+    display: inline-flex !important;
+}
+[data-theme="dark"] .theme-icon-moon,
+body.dark-mode .theme-icon-moon {
+    display: none !important;
+}
+
+/* ==========================================================================
+   HERO SECTION
+   ========================================================================== */
 .hero {
     width: 100%;
-    height: 100vh;
-    background-color: #f8fafc; 
+    min-height: calc(100vh - 65px);
+    background-color: var(--color-hero-bg); 
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
 }
 
-/* Membuat lapisan gelap transparan di atas foto */
 .overlay {
     width: 100%;
-    height: 100%;
+    padding: 70px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
 }
 
-/* Tampilan Konten */
 .hero-content {
-    color: var(--putih-bersih);
+    max-width: 820px;
 }
 
 .greeting {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     font-weight: 600;
-    margin-bottom: 10px;
+    margin-bottom: 14px;
     letter-spacing: 2px;
-    color: #0f172a;
+    color: var(--color-hero-muted);
 }
 
 .hero-content h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #0f172a;
+    font-size: 3.8rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+    color: var(--color-hero-text);
+    letter-spacing: -1px;
+    line-height: 1.15;
 }
 
-/* Pengaturan Animasi Teks */
 .animated-text {
     font-size: 1.5rem;
     font-weight: 700;
-    margin-bottom: 30px;
-    color: #0f172a;
+    margin-bottom: 35px;
+    color: var(--color-hero-text);
 }
 
 #typed-text {
-    color: var(--warna-kuning);
-    font-weight: bold;
-    border-bottom: 2px solid var(--warna-kuning);
+    color: var(--color-accent);
+    font-weight: 700;
+    border-bottom: 2.5px solid var(--color-accent);
+    padding-bottom: 2px;
 }
 
-/* Animasi kursor berkedip */
 .cursor {
     display: inline-block;
     width: 3px;
-    background-color: var(--putih-bersih);
+    background-color: var(--color-accent);
     animation: blink 0.8s infinite;
 }
 
@@ -76,106 +281,96 @@
     50% { opacity: 0; }
 }
 
-/* Tombol Sosial Media Minimalis */
+/* Tombol Sosial Media Hero */
 .social-links {
     display: flex;
     justify-content: center; 
-    gap: 15px; 
+    gap: 14px; 
     flex-wrap: wrap; 
-    margin-top: 20px;
+    margin-top: 25px;
 }
 
 .social-links a {
     display: flex;
     align-items: center; 
     gap: 8px; 
-    
-    color: white;
+    color: var(--color-hero-social);
     text-decoration: none;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-weight: 600;
-    border: 1px solid #3aa6b9;
-    padding: 8px 16px;
-    border-radius:20px;
+    border: 1.5px solid var(--color-accent);
+    padding: 9px 18px;
+    border-radius: 25px;
     transition: all 0.3s ease;
-    background-color: #3aa6b9; 
+    background-color: rgba(255, 255, 255, 0.08); 
+    backdrop-filter: blur(5px);
 }
 
 .social-links a:hover {
-    background-color: var(--warna-kuning);
-    color: #000;
-    border-color: var(--warna-kuning);
+    background-color: var(--color-accent);
+    color: var(--color-accent-text);
+    border-color: var(--color-accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(245, 158, 11, 0.35);
 }
 
 .social-links a img {
-    /* Memaksa ukuran maksimal logo */
-    width: 20px !important; 
-    height: 20px !important; 
-    
+    width: 18px !important; 
+    height: 18px !important; 
     object-fit: contain; 
-
-    margin: 0 !important; 
-    padding: 0;
-    display: block; 
+    display: block;
+    border-radius: 2px; 
 }
 
-/* --- PENGATURAN NAVIGASI (NAVBAR) --- */
-.navbar {
-    background-color: var(--warna-biru); 
-    position: sticky;
-    top: 0;
-    z-index: 100; 
-    padding: 15px 0;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.navbar ul {
-    list-style: none; 
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-
-.navbar a {
-    color: var(--putih-bersih);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1rem;
-    transition: color 0.3s;
-}
-
-.navbar a:hover {
-    color: var(--warna-kuning); 
-}
-
-/* --- PENGATURAN UMUM BAGIAN (SECTION) --- */
+/* ==========================================================================
+   PENGATURAN UMUM SECTION
+   ========================================================================== */
 .section {
-    padding: 80px 20px; 
+    padding: 90px 20px;
+    background-color: var(--color-bg-page);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .bg-light {
-    background-color: #f9f9f9; 
+    background-color: var(--color-bg-alt); 
 }
 
 .container-section {
-    width: 75%; 
-    max-width: 1200px;
+    width: 85%; 
+    max-width: 1150px;
     margin: 0 auto; 
     padding: 0 15px; 
 }
 
 .section-title {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: var(--warna-biru);
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 50px;
+    color: var(--color-text-main);
+    letter-spacing: -0.5px;
+    position: relative;
+    transition: color 0.3s ease;
 }
 
-/* --- PENGATURAN TENTANG SAYA --- */
+.section-title::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3.5px;
+    background-color: var(--color-accent);
+    margin: 12px auto 0;
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   TENTANG SAYA & TECH STACK
+   ========================================================================== */
 .about-content {
     display: flex;
-    gap: 40px; 
+    gap: 50px; 
     flex-wrap: wrap; 
+    align-items: center;
 }
 
 .about-text, .skills {
@@ -184,11 +379,34 @@
 }
 
 .about-text p {
-    margin-bottom: 15px;
-    line-height: 1.6;
+    margin-bottom: 16px;
+    line-height: 1.75;
+    color: var(--color-text-body);
+    font-size: 1.05rem;
+    transition: color 0.3s ease;
 }
 
-/* Label Skill / Keahlian */
+.profile-avatar {
+    margin-bottom: 24px;
+}
+
+.profile-avatar img {
+    width: 190px;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 20px; 
+    border: 4px solid var(--color-accent);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); 
+}
+
+.skills h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+    margin-bottom: 18px;
+    transition: color 0.3s ease;
+}
+
 .skill-tags {
     display: flex;
     flex-wrap: wrap;
@@ -201,188 +419,139 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: #ffffff;
-    border: 1.5px solid #3aa6b9;
-    padding: 8px 16px;
-    border-radius: 8px; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    background-color: var(--color-bg-card);
+    border: 1.5px solid var(--color-border-card);
+    padding: 10px 18px;
+    border-radius: 10px; 
+    box-shadow: var(--shadow-card); 
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background-color 0.3s ease;
     cursor: default;
 }
 
-/* Teks nama teknologi di dalam kartu */
 .tech-card span {
-    color: #0f172a; 
+    color: var(--color-text-main); 
     font-size: 0.95rem;
     font-weight: 600;
-    background: none; 
-    padding: 0;
-    border: none;
+    transition: color 0.3s ease;
 }
 
-/* Ukuran & Pengaturan Logo di dalam Kartu */
 .tech-card img {
-    width:60px;
-    height: auto;
+    width: 28px;
+    height: 28px;
     object-fit: contain; 
     display: block;
 }
 
-/* --- EFEK HOVER ( Kursor Mengarah ke Kartu) --- */
 .tech-card:hover {
     transform: translateY(-4px); 
-    box-shadow: 0 6px 15px rgba(15, 23, 42, 0.12); 
-    border-color: #d97706; 
+    box-shadow: var(--shadow-card-hover); 
+    border-color: var(--color-accent); 
 }
 
-.skill-tags span {
-    background-color: var(--warna-biru);
-    color: var(--putih-bersih);
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #ffc107;
-    border-bottom: 3px solid var(--warna-kuning); 
-}
-
-/* --- PENGATURAN PORTOFOLIO --- */
+/* ==========================================================================
+   PORTOFOLIO (KARYA & PROYEK)
+   ========================================================================== */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
 }
 
 .portfolio-item {
-    background: var(--putih-bersih);
-    border-radius: 10px;
-    padding: 25px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: var(--color-bg-card);
+    border: 1.5px solid var(--color-border);
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-/* Efek hover: kartu menjulang dengan bayangan hitam samar */
 .portfolio-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: var(--color-accent);
 }
 
 .portfolio-item h3 {
-    color: var(--warna-biru);
-    margin-bottom: 10px;
+    color: var(--color-text-main);
+    font-size: 1.35rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+    transition: color 0.3s ease;
 }
 
-/* --- PENGATURAN KONTAK --- */
-.text-center {
-    text-align: center;
+.portfolio-item p {
+    color: var(--color-text-body);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    transition: color 0.3s ease;
 }
 
-.btn-contact {
-    display: inline-block;
+.portfolio-item h4 {
+    color: var(--color-text-main);
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     margin-top: 20px;
-    background-color: var(--warna-biru);
-    color: var(--putih-bersih);
-    padding: 12px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background 0.3s;
+    margin-bottom: 10px;
+    font-weight: 700;
 }
 
-.btn-contact:hover {
-    background-color: var(--warna-kuning);
-    color: #333;
-}
-
-/* --- STYLING FOTO PROFIL DI SECTION ABOUT --- */
-.profile-avatar {
-    margin-bottom: 20px;
-}
-
-.profile-avatar img {
-    width: auto;
-    height: 20rem;
-    object-fit: cover;
-    border-radius: 10%; 
-    border: 4px solid #3aa6b9;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); 
-}
-
-.btn-links-project a {
-    display: flex;
+.tech-card-use {
+    display: inline-flex;
     align-items: center; 
     gap: 8px; 
-    width: 8.5rem;
-    margin-top: 1rem;
-    
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 600;
-    border: 1px solid #3aa6b9;
-    padding: 8px 16px;
-    border-radius:20px;
-    transition: all 0.3s ease;
-    background-color: #3aa6b9; 
-}
-
-.btn-links-project a:hover {
-    background-color: var(--warna-kuning);
-    color: #000;
-    border-color: var(--warna-kuning);
-}
-
-/* Desain Kartu Tech Stack */
-.tech-card-use {
-    margin-top: 1rem;
-    width: 11rem;
-    display: flex;
-    align-items: center; 
-    gap: 10px; 
-    background-color: #ffffff; 
-    border: 1.5px solid #3aa6b9; 
-    padding: 8px 16px;
-    border-radius: 8px; 
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); 
+    background-color: var(--color-bg-card-subtle); 
+    border: 1px solid var(--color-border); 
+    padding: 6px 12px;
+    border-radius: 6px; 
     font-size: 0.85rem;
+    margin-right: 6px;
+    margin-bottom: 6px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Teks nama teknologi di dalam kartu */
 .tech-card-use span {
-    color: #0f172a;
-    font-size: 0.95rem;
+    color: var(--color-text-main);
+    font-size: 0.85rem;
     font-weight: 600;
-    background: none; 
-    padding: 0;
-    border: none;
+    transition: color 0.3s ease;
 }
 
-/* Ukuran & Pengaturan Logo di dalam Kartu */
 .tech-card-use img {
-    width:30px;
-    height: auto;
+    width: 18px;
+    height: 18px;
     object-fit: contain;
     display: block;
 }
 
-/* --- TOMBOL LIHAT DETAIL (muncul saat card di-hover) --- */
+/* Tombol Detail Card */
 .btn-detail {
     display: block;
     width: 100%;
-    margin-top: 22px;
-    padding: 10px 16px;
-    background-color: var(--warna-biru);
-    color: var(--putih-bersih);
-    border: none;
-    border-radius: 6px;
+    margin-top: 24px;
+    padding: 11px 16px;
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    border: 1.5px solid transparent;
+    border-radius: 8px;
     font-size: 0.95rem;
     font-weight: 600;
     cursor: pointer;
-    /* Posisi awal: tersembunyi */
     opacity: 0;
     transform: translateY(8px);
     visibility: hidden;
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, background-color 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .btn-detail,
+body.dark-mode .btn-detail {
+    background-color: rgba(255, 255, 255, 0.06);
+    border-color: var(--color-accent);
+    color: var(--color-accent);
 }
 
 .portfolio-item:hover .btn-detail,
@@ -393,11 +562,11 @@
 }
 
 .btn-detail:hover {
-    background-color: var(--warna-kuning);
-    color: #000;
+    background-color: var(--color-accent) !important;
+    color: var(--color-accent-text) !important;
+    border-color: var(--color-accent) !important;
 }
 
-/* Perangkat tanpa hover (mobile): tombol tetap terlihat */
 @media (hover: none) {
     .btn-detail {
         opacity: 1;
@@ -406,7 +575,49 @@
     }
 }
 
-/* --- POPUP DETAIL PROYEK --- */
+/* ==========================================================================
+   KONTAK
+   ========================================================================== */
+.text-center {
+    text-align: center;
+}
+
+.btn-contact {
+    display: inline-block;
+    margin-top: 25px;
+    background-color: var(--color-accent);
+    color: var(--color-accent-text);
+    padding: 13px 34px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
+    transition: all 0.3s ease;
+}
+
+.btn-contact:hover {
+    background-color: var(--color-accent-hover);
+    color: var(--color-accent-text);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(245, 158, 11, 0.45);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+    background-color: var(--color-footer-bg);
+    color: var(--color-footer-text);
+    padding: 30px 20px;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ==========================================================================
+   POPUP DETAIL PROYEK
+   ========================================================================== */
 .project-popup {
     position: fixed;
     inset: 0;
@@ -414,7 +625,8 @@
     align-items: center;
     justify-content: center;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.55);
+    background-color: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(4px);
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -428,13 +640,14 @@
 
 .popup-content {
     width: 100%;
-    max-width: 520px;
-    background-color: var(--putih-bersih);
-    border-radius: 10px;
-    padding: 30px;
-    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
-    transform: translateY(-25px) scale(0.97);
-    transition: transform 0.3s ease;
+    max-width: 540px;
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    padding: 32px;
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-20px) scale(0.97);
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .project-popup.active .popup-content {
@@ -446,12 +659,13 @@
     align-items: flex-start;
     justify-content: space-between;
     gap: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 .popup-header h3 {
-    color: var(--warna-biru);
+    color: var(--color-text-main);
     font-size: 1.5rem;
+    font-weight: 700;
     line-height: 1.3;
 }
 
@@ -461,20 +675,231 @@
     height: 36px;
     border: none;
     border-radius: 50%;
-    background-color: #eef1f5;
-    color: var(--warna-biru);
+    background-color: var(--color-bg-card-subtle);
+    color: var(--color-text-main);
     font-size: 1.5rem;
     line-height: 1;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .popup-close:hover {
-    background-color: var(--warna-biru);
-    color: var(--putih-bersih);
+    background-color: var(--color-accent);
+    color: var(--color-accent-text);
 }
 
 #popup-desc {
-    color: var(--warna-teks);
-    line-height: 1.7;
+    color: var(--color-text-body);
+    line-height: 1.75;
+    font-size: 1rem;
+}
+
+/* ==========================================================================
+   FLOATING MODERN FONT SWITCHER WIDGET
+   ========================================================================== */
+.font-switcher-container {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 999;
+}
+
+.font-switcher-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    border: 1.5px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.25);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.font-switcher-toggle:hover {
+    background-color: var(--color-accent);
+    color: var(--color-accent-text);
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(245, 158, 11, 0.35);
+}
+
+.font-switcher-toggle svg {
+    color: var(--color-accent);
+}
+
+.font-switcher-toggle:hover svg {
+    color: var(--color-accent-text);
+}
+
+.font-switcher-menu {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 0;
+    width: 290px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 14px;
+    box-shadow: var(--shadow-card-hover);
+    padding: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) scale(0.96);
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.font-switcher-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.font-switcher-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--color-text-main);
+}
+
+.font-switcher-badge {
+    background: rgba(245, 158, 11, 0.15);
+    color: var(--color-accent);
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.font-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.font-option-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding: 10px 12px;
+    background: var(--color-bg-card-subtle);
+    border: 1.5px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.2s ease;
+}
+
+.font-option-btn:hover {
+    background: var(--color-border);
+    border-color: var(--color-border);
+    transform: translateX(3px);
+}
+
+.font-option-btn.active {
+    background: rgba(245, 158, 11, 0.12);
+    border-color: var(--color-accent);
+}
+
+.font-option-btn .font-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text-main);
+    display: block;
+    margin-bottom: 2px;
+}
+
+.font-option-btn.active .font-name {
+    color: var(--color-accent);
+}
+
+.font-option-btn .font-desc {
+    font-size: 0.72rem;
+    color: var(--color-text-muted);
+    display: block;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 820px) {
+    .nav-container {
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: space-between;
+    }
+    
+    .nav-links {
+        gap: 16px;
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        padding-top: 8px;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .animated-text {
+        font-size: 1.3rem;
+    }
+    
+    .section {
+        padding: 65px 15px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .about-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .profile-avatar img {
+        margin: 0 auto;
+    }
+    
+    .skill-tags {
+        justify-content: center;
+    }
+    
+    .font-switcher-container {
+        bottom: 16px;
+        left: 16px;
+    }
+    
+    .font-switcher-menu {
+        width: 260px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .social-links a {
+        font-size: 0.85rem;
+        padding: 8px 14px;
+    }
+    
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
 }
