@@ -4,25 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rhenald Aditya | Portfolio</title>
+    <!-- Google Fonts: Montserrat (Default) & Modern Alternatives (Plus Jakarta Sans, Inter, Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <!-- <div id="app">
-        <h2>{{ message }}</h2>
-        <button @click="changeMessage">Klik Saya</button>
-    </div> -->
-    <section class="hero" id="home">
+    <!-- Navigasi Utama Sticky -->
     <nav class="navbar">
-        <ul>
-            <li><a href="#home">Beranda</a></li>
-            <li><a href="#about">Tentang</a></li>
-            <li><a href="#portfolio">Portofolio</a></li>
-            <li><a href="#contact">Kontak</a></li>
-        </ul>
+        <div class="nav-container">
+            <a href="#home" class="nav-brand">RhenaldAditya<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#portfolio">Portofolio</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <!-- Theme Toggle: Light / Dark Mode -->
+            <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Ganti Mode Gelap / Terang" title="Ganti Mode Gelap / Terang">
+                <span class="theme-icon theme-icon-sun" aria-hidden="true">
+                    <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </span>
+                <span class="theme-icon theme-icon-moon" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </span>
+                <span class="theme-toggle-text">Mode</span>
+            </button>
+        </div>
     </nav>
 
+    <!-- Hero Section -->
+    <section class="hero" id="home">
         <div class="overlay">
             <div class="hero-content">
                 <p class="greeting">Halo, perkenalkan saya</p>
@@ -33,25 +60,26 @@
                 </div>
 
                 <div class="social-links">
-                    <a href="https://github.com/RhenaldAditya" target="_blank"><img src="img/github_logo.png" srcset="">GitHub</a>
-                    <a href="https://instagram.com/rhenaldadityaa" target="_blank"><img src="img/ig_logo.png" srcset="">Instagram</a>
-                    <a href="https://www.linkedin.com/in/rhenald-aditya-bima-p-248053204/" target="_blank"><img src="img/linkedin_logo.jpg" srcset="">LinkedIn</a>
-                    <a href="https://youtube.com/@rhenaldaditya" target="_blank" class="btn"><img src="img/youtube_logo.jpg" srcset="">Youtube</a>
+                    <a href="https://github.com/RhenaldAditya" target="_blank"><img src="img/github_logo.png" alt="GitHub Logo">GitHub</a>
+                    <a href="https://instagram.com/rhenaldadityaa" target="_blank"><img src="img/ig_logo.png" alt="Instagram Logo">Instagram</a>
+                    <a href="https://www.linkedin.com/in/rhenald-aditya-bima-p-248053204/" target="_blank"><img src="img/linkedin_logo.jpg" alt="LinkedIn Logo">LinkedIn</a>
+                    <a href="https://youtube.com/@rhenaldaditya" target="_blank" class="btn"><img src="img/youtube_logo.jpg" alt="YouTube Logo">Youtube</a>
                 </div>
             </div>
         </div>
+    </section>
 
+    <!-- Bagian Tentang Saya -->
     <section id="about" class="section">
         <div class="container-section">
             <h2 class="section-title">Tentang Saya</h2>
             <div class="about-content">
                 <div class="about-text">
-                    
                     <div class="profile-avatar">
                         <img src="img/pasfoto_3-4.jpg" alt="Foto Rhenald Aditya">
                     </div>
                     <!-- Deskripsi personal -->
-                    <p>Halo! Saya Rhenald Aditya Bima Permana, mahasiswa Semester 6 di Universitas Terbuka. Saya memiliki ketertarikan mendalam pada pengembangan web dan aplikasi *mobile*, serta tata kelola teknologi informasi.</p>
+                    <p>Halo! Saya Rhenald Aditya Bima Permana, mahasiswa Semester 6 di Universitas Terbuka. Saya memiliki ketertarikan mendalam pada pengembangan web dan aplikasi <em>mobile</em>, serta tata kelola teknologi informasi.</p>
                     <p>Saat ini saya fokus mengembangkan aplikasi yang efisien dan responsif menggunakan teknologi modern.</p>
                 </div>
                 <div class="skills">
@@ -60,37 +88,32 @@
                         <!-- Kartu 1: PHP Laravel -->
                         <div class="tech-card">
                             <img src="img/laravel_logo.png" alt="Laravel Logo">
-                            <a>PHP (Laravel 12)</a>
+                            <span>PHP (Laravel 12)</span>
                         </div>
 
                         <!-- Kartu 2: Vue.js -->
                         <div class="tech-card">
                             <img src="img/vuejs_logo.png" alt="Vue Logo">
-                            <a>Vue.js</a>
+                            <span>Vue.js</span>
                         </div>
 
                         <!-- Kartu 3: TypeScript -->
                         <div class="tech-card">
                             <img src="img/typescript_logo.png" alt="TypeScript Logo">
-                            <a>TypeScript</a>
+                            <span>TypeScript</span>
                         </div>
 
                         <!-- Kartu 4: Ionic -->
                         <div class="tech-card">
                             <img src="img/ionic_logo.png" alt="Ionic Logo">
-                            <a>Ionic Framework</a>
+                            <span>Ionic Framework</span>
                         </div>
-
-                        <!-- Kartu 5: Python
-                        <div class="tech-card">
-                            <img src="img/python_logo.png" alt="Python Logo">
-                            <a>Python</a>
-                        </div> -->
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
     <!-- Bagian Daftar Proyek (Portfolio) -->
     <section id="portfolio" class="section bg-light">
         <div class="container-section">
@@ -106,14 +129,14 @@
                         <h4>Teknologi yang Digunakan</h4>
                         <div class="tech-card-use">
                             <img src="img/laravel_logo.png" alt="Laravel Logo">
-                            <a>Laravel 12</a>
+                            <span>Laravel 12</span>
                         </div>
-
                     </div>
                     <!-- Tombol detail, muncul saat card di-hover -->
                     <button type="button" class="btn-detail">Lihat Detail</button>
                 </div>
 
+                <!-- Kartu Proyek 2 -->
                 <div class="portfolio-item">
                     <div class="portfolio-info">
                         <h3>Weather Forecast App</h3>
@@ -122,42 +145,34 @@
                         <h4>Teknologi yang Digunakan</h4>
                         <div class="tech-card-use">
                             <img src="img/vuejs_logo.png" alt="Vue Logo">
-                            <a>Vue.js</a>
+                            <span>Vue.js</span>
                         </div>
                         <div class="tech-card-use">
                             <img src="img/ionic_logo.png" alt="Ionic Logo">
-                            <a>Ionic Framework</a>
+                            <span>Ionic Framework</span>
                         </div>
                         <div class="tech-card-use">
                             <img src="img/typescript_logo.png" alt="TypeScript Logo">
-                            <a>TypeScript</a>
+                            <span>TypeScript</span>
                         </div>
                     </div>
                     <!-- Tombol detail, muncul saat card di-hover -->
                     <button type="button" class="btn-detail">Lihat Detail</button>
                 </div>
 
-                <!-- Kartu Proyek 2 -->
-                <!-- <div class="portfolio-item">
-                    <div class="portfolio-info">
-                        <h3>Task Management System</h3>
-                        <p>Sistem manajemen tugas dengan antarmuka CLI yang dibangun menggunakan Python untuk efisiensi pengelolaan produktivitas harian.</p>
-                    </div>
-                </div> -->
-
                 <!-- Kartu Proyek 3 -->
                 <div class="portfolio-item">
                     <div class="portfolio-info">
                         <h3>Pemantau Harga Crypto Real-Time</h3>
-                        <p>Aplikasi ini digunakan untuk memantau secara realtime pergerakan harga dari Top 100 aset Cryptocurrency yang dapat diakses melalui website dan aplikasi smartphone</p>
+                        <p>Aplikasi ini digunakan untuk memantau secara realtime pergerakan harga dari Top 100 aset Cryptocurrency yang dapat diakses melalui website dan aplikasi smartphone.</p>
                         <h4>Teknologi yang Digunakan</h4>
                         <div class="tech-card-use">
                             <img src="img/vuejs_logo.png" alt="Vue Logo">
-                            <a>Vue.js</a>
+                            <span>Vue.js</span>
                         </div>
                         <div class="tech-card-use">
                             <img src="img/typescript_logo.png" alt="TypeScript Logo">
-                            <a>TypeScript</a>
+                            <span>TypeScript</span>
                         </div>
                     </div>
                     <!-- Tombol detail, muncul saat card di-hover -->
@@ -166,6 +181,7 @@
             </div>
         </div>
     </section>
+
     <!-- Bagian Kontak -->
     <section id="contact" class="section">
         <div class="container-section text-center">
@@ -174,7 +190,13 @@
             <a href="mailto:rhenaldaditya11@gmail.com" class="btn-contact">Kirim Email</a>
         </div>
     </section>
-    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container-section text-center">
+            <p>&copy; 2026 Rhenald Aditya Bima Permana. All rights reserved.</p>
+        </div>
+    </footer>
 
     <!-- Popup detail proyek (diisi otomatis dari card saat tombol diklik) -->
     <div class="project-popup" id="project-popup" role="dialog" aria-modal="true" aria-labelledby="popup-title">
@@ -184,6 +206,42 @@
                 <button type="button" class="popup-close" aria-label="Tutup">&times;</button>
             </div>
             <p id="popup-desc"></p>
+        </div>
+    </div>
+
+    <!-- Modern Font Selector Widget (Preview font Montserrat & opsi modern lainnya secara interaktif) -->
+    <div class="font-switcher-container" id="font-switcher">
+        <button type="button" class="font-switcher-toggle" id="font-switcher-toggle" aria-label="Pilih Gaya Font" title="Pilih Gaya Font">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="4 7 4 4 20 4 20 7"></polyline>
+                <line x1="9" y1="20" x2="15" y2="20"></line>
+                <line x1="12" y1="4" x2="12" y2="20"></line>
+            </svg>
+            <span class="font-current-name">Montserrat</span>
+        </button>
+        <div class="font-switcher-menu" id="font-switcher-menu">
+            <div class="font-switcher-header">
+                <span>Pilih Gaya Font</span>
+                <span class="font-switcher-badge">Live Preview</span>
+            </div>
+            <div class="font-options-list">
+                <button type="button" class="font-option-btn active" data-font="montserrat">
+                    <span class="font-name" style="font-family: 'Montserrat', sans-serif;">Montserrat</span>
+                    <span class="font-desc">Default • Geometris & Elegan</span>
+                </button>
+                <button type="button" class="font-option-btn" data-font="jakarta">
+                    <span class="font-name" style="font-family: 'Plus Jakarta Sans', sans-serif;">Plus Jakarta Sans</span>
+                    <span class="font-desc">Modern Tech & Startup</span>
+                </button>
+                <button type="button" class="font-option-btn" data-font="inter">
+                    <span class="font-name" style="font-family: 'Inter', sans-serif;">Inter</span>
+                    <span class="font-desc">Clean & Minimalist UI</span>
+                </button>
+                <button type="button" class="font-option-btn" data-font="poppins">
+                    <span class="font-name" style="font-family: 'Poppins', sans-serif;">Poppins</span>
+                    <span class="font-desc">Modern Geometric & Friendly</span>
+                </button>
+            </div>
         </div>
     </div>
 </body>
